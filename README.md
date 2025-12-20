@@ -34,172 +34,99 @@ Figma
 
 ## CODE:
 ```
-index.
-import React from "react";
-import bgCar1 from "./bg-car-1.png";
-
-export const IphoneProMax = (): JSX.Element => {
-  return (
-    <main className="bg-[#645d5d] w-full min-w-[225px] min-h-[553px] relative">
-      <img
-        className="absolute top-0 left-0 w-[225px] h-[553px] aspect-[0.56] object-cover"
-        alt="Background image showing car engineering and innovation"
-        src={bgCar1}
-      />
-
-      <p className="absolute top-[84px] left-[49px] w-[161px] [font-family:'Gudea-Regular',Helvetica] font-normal text-white text-base tracking-[0] leading-[normal]">
-        DRIVEN BY INNOVATION,POWERED BY ENGNEERING
-      </p>
-
-      <div className="absolute top-[209px] left-[61px] w-[120px] h-[18px] bg-[linear-gradient(90deg,rgba(197,197,197,1)_0%)] opacity-50" />
-
-      <button
-        className="absolute top-[209px] left-[77px] w-[133px] [font-family:'Irish_Grover-Regular',Helvetica] font-normal text-[#e1e0e0] text-sm tracking-[0] leading-[normal] cursor-pointer hover:opacity-80 transition-opacity"
-        aria-label="Get on board"
-      >
-        GET ON BOARD
-      </button>
-    </main>
-  );
-};
-tailwind
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./src/**/*.{html,js,ts,jsx,tsx}"],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-};
-tailwind.css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  button,
-  input,
-  select,
-  textarea {
-    @apply appearance-none bg-transparent border-0 outline-none;
-  }
+index.html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="iphone-pro-max">
+      <img class="bg-car" src="img/bg-car-1.png" />
+      <p class="text-wrapper">DRIVEN BY INNOVATION,POWERED BY ENGNEERING</p>
+      <div class="rectangle"></div>
+      <div class="div">GET ON BOARD</div>
+    </div>
+  </body>
+</html>
+globals.css
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+a {
+  text-decoration: none;
+}
+style.css
+.iphone-pro-max {
+  background-color: #645d5d;
+  width: 100%;
+  min-width: 225px;
+  min-height: 553px;
+  position: relative;
 }
 
-@tailwind components;
-@tailwind utilities;
-
-@layer components {
-  .all-\[unset\] {
-    all: unset;
-  }
+.iphone-pro-max .bg-car {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 225px;
+  height: 553px;
+  aspect-ratio: 0.56;
+  object-fit: cover;
 }
 
-:root {
-  --animate-spin: spin 1s linear infinite;
+.iphone-pro-max .text-wrapper {
+  position: absolute;
+  top: 84px;
+  left: 49px;
+  width: 161px;
+  font-family: "Gudea-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
 }
 
-.animate-fade-in {
-  animation: fade-in 1s var(--animation-delay, 0s) ease forwards;
+.iphone-pro-max .rectangle {
+  position: absolute;
+  top: 209px;
+  left: 61px;
+  width: 120px;
+  height: 18px;
+  background: linear-gradient(90deg, rgba(197, 197, 197, 1) 0%);
+  opacity: 0.5;
 }
 
-.animate-fade-up {
-  animation: fade-up 1s var(--animation-delay, 0s) ease forwards;
+.iphone-pro-max .div {
+  position: absolute;
+  top: 209px;
+  left: 77px;
+  width: 133px;
+  font-family: "Irish Grover-Regular", Helvetica;
+  font-weight: 400;
+  color: #e1e0e0;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
 }
 
-.animate-marquee {
-  animation: marquee var(--duration) infinite linear;
-}
-
-.animate-marquee-vertical {
-  animation: marquee-vertical var(--duration) linear infinite;
-}
-
-.animate-shimmer {
-  animation: shimmer 8s infinite;
-}
-
-.animate-spin {
-  animation: var(--animate-spin);
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(1turn);
-  }
-}
-
-@keyframes image-glow {
-  0% {
-    opacity: 0;
-    animation-timing-function: cubic-bezier(0.74, 0.25, 0.76, 1);
-  }
-
-  10% {
-    opacity: 0.7;
-    animation-timing-function: cubic-bezier(0.12, 0.01, 0.08, 0.99);
-  }
-
-  to {
-    opacity: 0.4;
-  }
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes fade-up {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes shimmer {
-  0%,
-  90%,
-  to {
-    background-position: calc(-100% - var(--shimmer-width)) 0;
-  }
-
-  30%,
-  60% {
-    background-position: calc(100% + var(--shimmer-width)) 0;
-  }
-}
-
-@keyframes marquee {
-  0% {
-    transform: translate(0);
-  }
-
-  to {
-    transform: translateX(calc(-100% - var(--gap)));
-  }
-}
-
-@keyframes marquee-vertical {
-  0% {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(calc(-100% - var(--gap)));
-  }
-}
+   
 ```
 
 ## OUTPUT:
